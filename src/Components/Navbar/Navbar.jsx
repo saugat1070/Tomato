@@ -2,8 +2,9 @@ import "./Navbar.css";
 
 import React, { useState } from "react";
 import { assets } from "../../assets/frontend_assets/assets";
+import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({showLogin,setShowLogin}) {
   const [menu, setMenu] = useState("home");
 
   const handleMouseHover = (value) => {
@@ -14,39 +15,39 @@ export default function Navbar() {
     <div className="navbar">
       <img src={assets.logo} alt="" className="logo" />
       <ul className="navbar-menu">
-        <li
+        <Link to="/"
           onClick={()=>setMenu("home")}
           className={menu === "home" ? "active" : ""}
         >
           home
-        </li>
-        <li
+        </Link>
+        <a href="#menu"
           onClick={()=>setMenu("menu")}
           className={menu === "menu" ? "active" : ""}
         >
           menu
-        </li>
-        <li
+        </a>
+        <a href="#app-download"
           onClick={()=>setMenu("mobile-app")}
           className={menu === "mobile-app" ? "active" : ""}
         >
           mobile-app
-        </li>
-        <li
+        </a>
+        <a href="#footer"
           onClick={()=>setMenu("contact-us")}
         //   onMouseLeave={()=>setMenu("")}
           className={menu === "contact-us" ? "active" : ""}
         >
           contact us
-        </li>
+        </a>
       </ul>
       <div className="navbar-right">
         <img src={assets.search_icon} alt="" />
         <div className="nav-bar-search-icon">
-          <img src={assets.basket_icon} alt="" />
+          <Link to="/cart"><img src={assets.basket_icon} alt="" /></Link>
           <div className="dot"></div>
         </div>
-        <button>sign in</button>
+        <button onClick={()=>setShowLogin(!showLogin)}>sign in</button>
       </div>
     </div>
   );
