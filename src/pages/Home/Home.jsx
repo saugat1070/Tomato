@@ -3,6 +3,7 @@ import "./Home.css"
 import Header from '../../Components/Header/Header'
 import ExploreMenu from '../../Components/ExploreMenu/ExploreMenu'
 import FoodDisplay from '../../Components/FoodDisplay/FoodDisplay';
+import Appdownload from '../../Components/Appdownload/Appdownload';
 
 export default function Home() {
 
@@ -13,6 +14,7 @@ export default function Home() {
         <Header/>
         <ExploreMenu category={category} setCategory={setCategory} />
         <FoodDisplay category={category}/>
+        <Appdownload />
     </div>
   )
 }
